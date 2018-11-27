@@ -1,0 +1,21 @@
+<h1>新規投稿</h1>
+<!-- form_for部分 -->
+<%= form_for(@book) do |f| %>
+ 
+    <h4>タイトル</h4>
+    <%= f.text_field :title, class: "book_title" %>
+ 
+    <h4>本文</h4>
+    <%= f.text_area :body ,class: "Book_body" %>
+ 
+    <%= f.submit '投稿' %>
+ 
+<% end %>
+
+<% @book.errors.full_messages.each do |message| %>
+ <div class="form-error">
+  <%= message %>
+ </div>
+<% end %>
+<textarea name="content"><%= @book.content %></textarea>
+<input type="submit" value="投稿">

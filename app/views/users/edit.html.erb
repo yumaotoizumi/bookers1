@@ -1,0 +1,18 @@
+<h1>User info </h1>
+
+<%= form_for(@user) do |f| %>
+
+    <% if @user.errors.any? %>
+        <%= @user.errors.count %>件のエラーが発生しました
+        <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+    <% end %>
+
+<p> name </p>
+    <p> <%= f.text_field :name %> </p>
+    <%= f.text_field :introduction %>
+    <%= f.attachment_field :image %>
+
+    <%= f.submit %>
+<% end %>
