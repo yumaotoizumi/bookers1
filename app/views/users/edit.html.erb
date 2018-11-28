@@ -3,15 +3,16 @@
 <%= form_for(@user) do |f| %>
 
     <% if @user.errors.any? %>
-        <%= @user.errors.count %>件のエラーが発生しました
+        <%= @user.errors.count %>error
         <% @user.errors.full_messages.each do |message| %>
             <%= message %>
         <% end %>
     <% end %>
 
-    <p> Name <%= f.text_field :name %> </p>
-    <p> Introduction <%= f.text_field :introduction %> </p>
-    <p> Imag <%= f.attachment_field :image %> </p>
+     Name <%= f.text_field :name %>
+     Introduction <%= f.text_field :introduction ,class: "introduction"%>
+     Image <%= f.attachment_field :image ,class: "user_image"%>
 
-    <%= f.submit %>
+    <%= f.submit '変更' %>
 <% end %>
+

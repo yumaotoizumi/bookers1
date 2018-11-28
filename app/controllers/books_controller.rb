@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+before_action :correct_user, only: [:edit, :update,:destroy]
 	def new
 		@book = Book.new
         @user = User.find(params[:id])
@@ -12,7 +12,7 @@ class BooksController < ApplicationController
         # DBへ保存する
 
          if @book.save
-            flash[:notice] = "successfull"
+            flash[:notice] = "successfully"
             redirect_to book_path(@book.id)
 
         else
@@ -49,11 +49,10 @@ class BooksController < ApplicationController
     def update
         @book = Book.find(params[:id])
         if @book.update(book_params)
-            flash[:notice] = "successfull"
+            flash[:notice] = "successfully"
             redirect_to book_path(@book.id)
         else
             render "edit"
-
         end
 
     end
@@ -65,6 +64,13 @@ class BooksController < ApplicationController
 
 
 	private
+
+    def correct_user
+        book = Book.find(params[:id])
+        if current_user != book.user
+            redirect_to book_path
+        end
+    end
 	def book_params
 		params.require(:book).permit(:title,:body)
 	end
