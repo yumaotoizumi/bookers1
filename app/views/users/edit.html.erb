@@ -9,10 +9,9 @@
         <% end %>
     <% end %>
 
-<p> name </p>
-    <p> <%= f.text_field :name %> </p>
-    <%= f.text_field :introduction %>
-    <%= f.attachment_field :image %>
+    <p> Name <%= f.text_field :name %> </p>
+    <p> Introduction <%= f.text_field :introduction %> </p>
+    <p> Imag <%= f.attachment_field :image %> </p>
 
     <%= f.submit %>
 <% end %>
