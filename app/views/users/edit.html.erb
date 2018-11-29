@@ -9,8 +9,8 @@
         <% end %>
     <% end %>
 
-     Name <%= f.text_field :name %>
-     Introduction <%= f.text_field :introduction ,class: "introduction"%>
+     Name <%= f.text_field :name,class: "name" %>
+     Introduction <%= f.text_area :introduction ,class: "introduction"%>
      Image <%= f.attachment_field :image ,class: "user_image"%>
 
     <%= f.submit '変更' %>
